@@ -6,8 +6,6 @@ import Subtitle from "../../../components/Subtitle";
 
 const Timeline = ({historic }) => {
 
-    console.log(historic)
-
     const renderNodeOrder = (status, text, index)=>{
         const icon = {
             style: styles.chip,            
@@ -21,14 +19,13 @@ const Timeline = ({historic }) => {
             icon.style = { ...styles.chip, backgroundColor: colors.info.error };
           }
 
-
         return (     
-              <View style={styles.wrapper} key={index}>
+            <View style={styles.wrapper} key={index}>
                 <View style={icon.style}>
                   {icon.name && <MaterialCommunityIcons name={icon.name} size={24} color="white" />}
                 </View>
                 <Text style={styles.text}>{text}</Text>
-              </View>
+            </View>
           );
     }
 
@@ -38,9 +35,7 @@ const Timeline = ({historic }) => {
             {historic.map((i, index) => (
                 renderNodeOrder(i.status, i.describe,index ) 
             ))}
-
-            <View style={styles.dividerVertical}/>
-        
+            <View style={styles.dividerVertical}/>        
         </View>
       );
 }

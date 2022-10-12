@@ -15,14 +15,13 @@ const Summary = ({order}) => {
     }
 
     return (
-        <View >
-            <Subtitle  text="RESUMO DO PEDIDO" />
+    <View >
+        <Subtitle text="RESUMO DO PEDIDO" />
             {detailItem("data",  utils.formatDate(order.dataCreated))}
             {detailItem("valor",  utils.formatMoney(order.value))}            
             {detailItem("status", order.status)}
-            {detailItem("Tipo do Frete", order.delivery)}
-        </View>
-        )
+            {detailItem("Tipo do Frete", order.delivery.type)}
+    </View>)
 }
 
 export default Summary

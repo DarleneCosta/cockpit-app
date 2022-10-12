@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     fontWeight: "900",
     textTransform: 'uppercase',
-    fontSize:15
+    fontSize:15,
+    paddingRight:'7%',
   },  
 });
 

@@ -4,7 +4,7 @@ const order = {
     dateUpdated: 1664654682, 
     value:500.6, 
     status:"Cancelado", 
-    delivery: "Correios",
+    delivery: {type: "Correios", value: 0} ,
     historic: [
         {id:"PED", status: "OK", describe: "Pedido realizado 28/09/2022", dateCreated:123 },
         {id:"PAG", status: "OK", describe: "Pagamento aprovado", dateCreated:123 },
@@ -14,14 +14,32 @@ const order = {
     ],
     items: [
         {   
-            id:"1257452585",
-            name: "Teste 1", 
-            specification: {size: {height:30, width:50, metric: 'cm' }, color: 'Black', weight:{value:'350',  metric: 'gm'} },
-            qtd: 4,
-            unitaryValue: 60,
-            amount: 240
+            id:"012574525805",
+            name: "Fone de Ouvido Bluetooth, JBS", 
+            specification: {size: {value:'13.2 x 8.5 x 3.5', metric: 'cm' }, color: 'Preto', weight:{value:'60',  metric: 'gm'} },
+            qtd: 1,
+            unitaryValue: 240,
+            amount: 240,
+            imageUrl: "https://m.media-amazon.com/images/I/51Z7AxeZKKL._AC_SX679_.jpg"
+        },
+        {   
+            id:"545454852722",
+            name: "Filtro de Linha PowerLine com 12", 
+            specification: {size: {value:'46.5 x 4.8 x 4.5', metric: 'cm' }, color: 'Branco', weight:{value:'700',  metric: 'gm'} },
+            qtd: 2,
+            unitaryValue: 130.3,
+            amount: 260.6,
+            imageUrl: "https://m.media-amazon.com/images/I/71aF7j4PuQL._AC_SL1500_.jpg"
         }
-    ]
+    ],
+    payments: [{
+        id: "15454548451",
+        type: {id:"pix",describe:"PIX"},
+        value: 500.6,
+        dateCreated:1664395482,
+        dateUpdated:1664395486,
+    }]
+
 }
 
 export default order
