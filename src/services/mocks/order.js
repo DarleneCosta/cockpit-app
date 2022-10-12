@@ -38,8 +38,11 @@ const order = {
         value: 500.6,
         dateCreated:1664395482,
         dateUpdated:1664395486,
-    }]
-
+    }],
+    billingAddress: {city: "São Paulo", uf: "SP", cep: "08375000" ,number:"1522", address:"Avenida Ragueb Chohfi, Jardim Três Marias", contact:{phoneNumber: "5511998991122", name:"Annabel Correia"}},
+    deliveryAddress: {city: "São Paulo", uf: "SP", cep: "69010080", number:"52",address:"Rua 24 de Maio, Centro", contact:{phoneNumber: "5511998991122", name:"Annabel Correia"}}
+    
 }
+
 
 export default order
