@@ -1,30 +1,37 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import styles from "./style";
+import { Ionicons } from '@expo/vector-icons'; 
+import Divider from "../../components/Divider";
+import useOrder from "../../hooks/useOrder";
+import Summary from "./Summary";
+import colors from "../../styles/colors";
+import Timeline from "./Timeline";
+import Title from "../../components/Title";
 
 const Order = () => {
+  const order = useOrder();
   return (
+    order && 
     <>
-      <View style={styles.wrapperTitle}>
-        <Text style={styles.title}>MENU</Text>
-      </View>
+      <TouchableOpacity style={styles.wrapperMenu}>
+        <Text style={styles.menu}>MENU</Text>
+        <Ionicons name="chevron-down-outline" size={25} color="black" />
+      </TouchableOpacity>
 
-      <Text style={styles.subtitle}>COMPRA 00012345</Text>
+      <Title text={`COMPRA ${order.id}`} />      
+
       <View style={styles.card}>
-        <View>
-          <Text style={styles.text}>RESUMO DO PEDIDO</Text>
-        </View>
-        <Text style={styles.text}>STATUS DO PEDIDO</Text>
-        <View></View>
+        <Summary order={order} />
+        <Divider  color={colors.primary.main} margin={24}/>
+        <Timeline historic={order.historic} /> 
+        <Divider  color={colors.primary.main} margin={24}/>
+
+         
       </View>
     </>
-  );
+    );
 };
 
-const styles = StyleSheet.create({
-  wrapperTitle: {},
-  text: {},
-  title: {},
-  subtitle: {},
-  card: {},
-});
+
 
 export default Order;

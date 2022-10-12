@@ -1,6 +1,7 @@
-import { StatusBar, SafeAreaView, Text, StyleSheet, View } from "react-native";
+import { StatusBar,  Text,  View } from "react-native";
 import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import styles from "./style";
 
 const Header = () => {
   return (
@@ -13,42 +14,12 @@ const Header = () => {
         </View>
         <View style={styles.wrapper}>
           <Ionicons name="search" style={styles.icon} size={30} />
-          <SimpleLineIcons name="bag" style={styles.icon} size={30} />
+          <SimpleLineIcons name="handbag" style={styles.icon} size={28} />
         </View>
       </View>
     </>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: "absolute",
-    start: 0,
-  },
-  top: {
-    backgroundColor: "red",
-    paddingHorizontal: 25,
-    paddingTop: 15,
-    paddingBottom: 10,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  title: {
-    fontSize: 25,
-    color: "white",
-    fontWeight: "900",
-    marginLeft: 10,
-  },
-  wrapper: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  icon: {
-    color: "white",
-    size: 30,
-    marginHorizontal: 5,
-  },
-});
 
 export default Header;
