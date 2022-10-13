@@ -6,6 +6,7 @@ import utils from "../../../utils";
 import styles from "./style";
 
 const Details = ({ items }) => {
+    
   const renderItem = (item) => {
     const fullSpecification = (specification) =>
       `${utils.formatMetric(specification.size)} / ${

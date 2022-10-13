@@ -1,18 +1,4 @@
-// import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View } from 'react-native';
-
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text>Open up App.js to start working on your app!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
-
-import { StatusBar, SafeAreaView, Text, StyleSheet, View } from "react-native";
-import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { SafeAreaView, StyleSheet } from "react-native";
 import Header from "./src/components/Header/index";
 import Order from "./src/screens/Order/index";
 

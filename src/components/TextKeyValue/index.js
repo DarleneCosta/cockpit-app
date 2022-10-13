@@ -1,11 +1,11 @@
 import { Text, View } from "react-native";
 import styles from "./style";
 
-const TextKeyValue = ({ value, key }) => {
+const TextKeyValue = ({ value, label }) => {
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.key}>{key}</Text>
-      <Text style={styles.text}>{text}</Text>
+      {label && <Text style={styles.key}>{label}</Text>}
+      {value && <Text style={styles.text}>{value}</Text>}
     </View>
   );
 };

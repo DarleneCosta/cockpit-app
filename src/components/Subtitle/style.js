@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     textTransform: 'uppercase',
     fontSize:15,
-    paddingRight:'7%',
   },  
 });
 

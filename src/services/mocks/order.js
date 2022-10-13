@@ -66,24 +66,27 @@ const order = {
       dateUpdated: 1664395486,
     },
   ],
-  billingAddress: {
+  adresses: [{
+    type: 'cobrança',
     nameResponsible: "Fernanda Correia",
     city: "São Paulo",
     uf: "SP",
     cep: "08375000",
     number: "1522",
-    address: "Avenida Ragueb Chohfi, Jardim Três Marias",
-    contact: { phoneNumber: "5511998991122", name: "Annabel Correia" },
-  },
-  deliveryAddress: {
+    describe: "Avenida Ragueb Chohfi, Jardim Três Marias",
+    complement: 'apt. 265',
+    contact: { phoneNumber: "5513968942132", name: "Annabel Correia" },
+  },{
+    type: 'entrega',
     nameResponsible: "Annabel Correia",
     city: "São Paulo",
     uf: "SP",
     cep: "69010080",
     number: "52",
-    address: "Rua 24 de Maio, Centro",
-    contact: { phoneNumber: "5511998991122", name: "Annabel Correia" },
-  },
+    describe: "Rua 24 de Maio, Centro",
+    complement: null,
+    contact: { phoneNumber: "5513968942132", name: "Annabel Correia" },
+  }]
 };
 
 export default order;

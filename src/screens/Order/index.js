@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, TouchableHighlight} from "react-native";
 import styles from "./style";
 import { Ionicons } from '@expo/vector-icons'; 
 import Divider from "../../components/Divider";
@@ -9,9 +9,11 @@ import Timeline from "./Timeline";
 import Title from "../../components/Title";
 import Details from "./Details";
 import Payments from "./Payments";
+import Adresses from "./Adresses";
 
 const Order = () => {
   const order = useOrder();
+
   return (
     order && 
     <ScrollView>
@@ -30,7 +32,19 @@ const Order = () => {
         <Details items={order.items} /> 
         <Divider  color={colors.primary.main} margin={24}/>
         <Payments payments={order.payments} delivery={order.delivery} amount={order.value} /> 
+        <Divider  color={colors.primary.main} margin={10}/>
+        <Adresses adresses={order.adresses} />
       </View>
+      <View style={styles.wrapperFooter}>
+        <Text style={styles.labelFooter}>Algum problema com sua compra?</Text>
+      
+
+      </View>
+      <TouchableHighlight>
+          <View style={styles.button}>
+            <Text style={styles.labelButton}>Fale Conosco</Text>
+          </View>
+        </TouchableHighlight>
       
     </ScrollView>
     );

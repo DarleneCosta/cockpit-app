@@ -19,11 +19,11 @@ const Payment = ({ payments, delivery, amount }) => {
               <Subtitle text={payment.type.describe} />
             </View>
             <TextKeyValue
-              key="Total da compra"
+              label="Total da compra"
               value={utils.formatMoney(payment.value)}
             />
             <TextKeyValue
-              key={`Frete: ${delivery.type}`}
+              label={`Frete: ${delivery.type}`}
               value={
                 !delivery.value ? "Grátis" : utils.formatMoney(delivery.value)
               }
