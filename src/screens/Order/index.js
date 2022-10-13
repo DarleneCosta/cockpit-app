@@ -1,4 +1,5 @@
 import { View, Text, ScrollView, TouchableOpacity, TouchableHighlight} from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import styles from "./style";
 import { Ionicons } from '@expo/vector-icons'; 
 import Divider from "../../components/Divider";
@@ -12,7 +13,13 @@ import Payments from "./Payments";
 import Adresses from "./Adresses";
 
 const Order = () => {
+  const navigation = useNavigation();
+ 
   const order = useOrder();
+
+  const handlePressButton = () =>{  
+    navigation.navigate('SolicitarAtendimento', order);
+  }
 
   return (
     order && 
@@ -40,7 +47,7 @@ const Order = () => {
       
 
       </View>
-      <TouchableHighlight>
+      <TouchableHighlight onPress={handlePressButton}>
           <View style={styles.button}>
             <Text style={styles.labelButton}>Fale Conosco</Text>
           </View>

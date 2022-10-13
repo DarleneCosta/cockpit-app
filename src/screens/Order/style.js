@@ -42,10 +42,10 @@ const styles = StyleSheet.create({
     marginLeft: 50,
   },
   button: {
-     backgroundColor: colors.secondary.main,
+    backgroundColor: colors.secondary.main,
     borderRadius: 100,    
     marginVertical: 20,
-    paddingVertical: 10,
+    paddingVertical: 15,
     marginHorizontal: 30,
     elevation: 3,
   },

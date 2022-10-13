@@ -1,13 +1,16 @@
 import { SafeAreaView, StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import Header from "./src/components/Header/index";
-import Order from "./src/screens/Order/index";
+import Router from "./src/routers";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Header />
-      <Order />
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={styles.container}>
+        <Header />
+        <Router />
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
