@@ -7,6 +7,14 @@ const styles = StyleSheet.create({
     width: "100%",
     marginVertical: 5,
   },
+  key: {
+    textTransform: "uppercase",
+    fontWeight: "bold",
+  },
+  value: {
+    textAlign: "center",
+    textTransform: "uppercase",
+  },
 });
 
 export default styles;
