@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, TouchableHighlight} from "react-native";
+import { View, Text, ScrollView, TouchableOpacity} from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import styles from "./style";
 import { Ionicons } from '@expo/vector-icons'; 
@@ -12,13 +12,14 @@ import Details from "./Details";
 import Payments from "./Payments";
 import Adresses from "./Adresses";
 
+
 const Order = () => {
   const navigation = useNavigation();
  
   const order = useOrder();
 
   const handlePressButton = () =>{  
-    navigation.navigate('SolicitarAtendimento', order);
+    navigation.navigate('SolicitarAtendimento', {orderId: order.id});
   }
 
   return (
@@ -29,7 +30,7 @@ const Order = () => {
         <Ionicons name="chevron-down-outline" size={25} color="black" />
       </TouchableOpacity>
 
-      <Title text={`COMPRA ${order.id}`} />      
+      <Title text={`COMPRA #${order.id}`} />      
 
       <View style={styles.card}>
         <Summary order={order} />
@@ -47,11 +48,11 @@ const Order = () => {
       
 
       </View>
-      <TouchableHighlight onPress={handlePressButton}>
+      <TouchableOpacity onPress={handlePressButton}>
           <View style={styles.button}>
             <Text style={styles.labelButton}>Fale Conosco</Text>
           </View>
-        </TouchableHighlight>
+      </TouchableOpacity>
       
     </ScrollView>
     );
