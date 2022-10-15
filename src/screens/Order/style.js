@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import colors from "../../styles/colors"
+import colors from "../../styles/colors";
 
 const styles = StyleSheet.create({
   wrapperMenu: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: 60,
     flexDirection: "row",
-    borderColor: colors.primary.main
+    borderColor: colors.primary.main,
   },
   menu: {
     fontWeight: "800",
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginLeft: "30%",
     marginRight: "20%",
-    textTransform: 'uppercase'
+    textTransform: "uppercase",
   },
 
   card: {
@@ -36,37 +36,22 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     fontWeight: "900",
     fontSize: 14,
-    textTransform: 'uppercase'
+    textTransform: "uppercase",
   },
   icon: {
     marginLeft: 50,
   },
-  button: {
-    backgroundColor: colors.secondary.main,
-    borderRadius: 100,    
-    marginVertical: 20,
-    paddingVertical: 15,
-    marginHorizontal: 30,
-    elevation: 3,
-  },
-  labelButton: { 
-    fontSize: 20,
-    textTransform: 'uppercase',
-    fontWeight: "900",
-    color: colors.secondary.contrast, 
-    textAlign:"center"
-  },
   labelFooter: {
     fontSize: 20,
-    textTransform: 'uppercase',
-    textAlign:"center",
+    textTransform: "uppercase",
+    textAlign: "center",
     fontWeight: "900",
-   width: '60%'
+    width: "60%",
   },
   wrapperFooter: {
     alignItems: "center",
-    width: '100%'
-  }
+    width: "100%",
+  },
 });
 
 export default styles;
