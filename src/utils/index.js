@@ -1,33 +1,47 @@
 import moment from "moment";
 
-const formatDate = (value, format="DD/MM/YYYY") => {
-  return moment(value).format(format)
-}
+const formatDate = (value, format = "DD/MM/YYYY") => {
+  return moment.unix(value).format(format);
+};
 
-const formatCep = (value, ) => {
-  if(!value) return ''
-  const result = `${value.substring(0,5)}-${value.substring(5)}`
-  return result
-} 
+const formatCep = (value) => {
+  if (!value) return "";
+  const result = `${value.substring(0, 5)}-${value.substring(5)}`;
+  return result;
+};
 
 const formatMetric = (obj) => {
-  return `${obj.value} ${obj.metric}`
-}
+  return `${obj.value} ${obj.metric}`;
+};
 
-const formatMoney = (balanceValue) => {  
-    const value  = balanceValue || 0
-    const formattedBalance = parseFloat(value).toFixed(2)
-    const stringFormatted = `R$ ${formattedBalance.replace(",", ".").replace(".", ",")}`;
-    return stringFormatted;
+const formatMoney = (balanceValue) => {
+  const value = balanceValue || 0;
+  const formattedBalance = parseFloat(value).toFixed(2);
+  const stringFormatted = `R$ ${formattedBalance
+    .replace(",", ".")
+    .replace(".", ",")}`;
+  return stringFormatted;
 };
 
 const formatPhone = (value) => {
-  if(!value) return ''
+  if (!value) return "";
 
-  if(value.length===13)
-    return `+${value.substring(0,2)} (${value.substring(2,4)}) ${value.substring(4, 9)}-${value.substring(9)}`
+  if (value.length === 13)
+    return `+${value.substring(0, 2)} (${value.substring(
+      2,
+      4
+    )}) ${value.substring(4, 9)}-${value.substring(9)}`;
 
-  return `+${value.substring(0,2)} (${value.substring(2,4)}) ${value.substring(4, 8)}-${value.substring(8)}`
-}
+  return `+${value.substring(0, 2)} (${value.substring(
+    2,
+    4
+  )}) ${value.substring(4, 8)}-${value.substring(8)}`;
+};
 
-  export default { formatCep, formatDate, formatPhone, formatMetric, formatMoney };
+export default {
+  formatCep,
+  formatDate,
+  formatPhone,
+  formatMetric,
+  formatMoney,
+};

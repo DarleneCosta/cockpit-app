@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from "react-native";
 import { useRoute } from "@react-navigation/native";
-import BackButton from "./../../components/BackButton";
+import ButtonBack from "./../../components/ButtonBack";
 import Title from "./../../components/Title";
 import Identification from "./../../components/Identification";
 import styles from "./style";
@@ -51,7 +51,7 @@ const Chat = () => {
 
   return (
     <>
-      <BackButton />
+      <ButtonBack />
       <Title text={"Chat com Atendente"} />
       <View style={styles.container}>
         <Identification label="Protocolo" valueID={complainId} />

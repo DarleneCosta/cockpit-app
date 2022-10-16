@@ -15,6 +15,9 @@ const colors = {
     error: "#EC6E6E",
     disabled: "#a0a0a0",
   },
+  icons: {
+    whatsApp: "#34af23",
+  },
 };
 
 export default colors;

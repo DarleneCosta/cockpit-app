@@ -15,10 +15,11 @@ import TextKeyValue from "./../../components/TextKeyValue";
 
 import styles from "./style";
 import colors from "./../../styles/colors";
-import BackButton from "../../components/BackButton";
-import ButtonTemplate from "./../../components/ButtonTemplate/index";
-import Upload from "./Upload/index";
-import Identification from "./../../components/Identification/index";
+import ButtonBack from "../../components/ButtonBack";
+import ButtonTemplate from "./../../components/ButtonTemplate";
+import ButtonWhats from "./../../components/ButtonWhats";
+import Identification from "./../../components/Identification";
+import Upload from "./Upload";
 
 const Complain = () => {
   const navigation = useNavigation();
@@ -52,44 +53,47 @@ const Complain = () => {
   };
 
   return (
-    <ScrollView>
-      <BackButton />
-      <Title text="Fale Conosco" />
+    <>
+      <ScrollView>
+        <ButtonBack />
+        <Title text="Fale Conosco" />
 
-      <View style={styles.container}>
-        <Identification label="Id do pedido" valueID={orderId} />
+        <View style={styles.container}>
+          <Identification label="Id do pedido" valueID={orderId} />
 
-        <Text style={styles.label}>Motivo do contato *</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={setTitleComplain}
-          value={titleComplain}
-          maxLength={30}
-        />
+          <Text style={styles.label}>Motivo do contato *</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={setTitleComplain}
+            value={titleComplain}
+            maxLength={30}
+          />
 
-        <Text style={styles.label}>Tipo *</Text>
-        <ComboBox data={typesComplain} setValue={setType} value={type} />
+          <Text style={styles.label}>Tipo *</Text>
+          <ComboBox data={typesComplain} setValue={setType} value={type} />
 
-        <Text style={styles.label}>Descrição</Text>
-        <TextInput
-          style={styles.inputText}
-          onChangeText={setDescribeComplain}
-          value={describeComplain}
-          maxLength={500}
-          multiline
-        />
+          <Text style={styles.label}>Descrição</Text>
+          <TextInput
+            style={styles.inputText}
+            onChangeText={setDescribeComplain}
+            value={describeComplain}
+            maxLength={500}
+            multiline
+          />
 
-        <Text style={styles.label}>Adicione evidências aqui</Text>
-        <Upload />
-      </View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={handlePressButton}
-        disabled={disabled}
-      >
-        <ButtonTemplate label={"Enviar Mensagem"} disabled={disabled} />
-      </TouchableOpacity>
-    </ScrollView>
+          <Text style={styles.label}>Adicione evidências aqui</Text>
+          <Upload />
+        </View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handlePressButton}
+          disabled={disabled}
+        >
+          <ButtonTemplate label={"Enviar Mensagem"} disabled={disabled} />
+        </TouchableOpacity>
+      </ScrollView>
+      <ButtonWhats />
+    </>
   );
 };
 
