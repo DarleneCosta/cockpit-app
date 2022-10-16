@@ -57,7 +57,7 @@ const Order = () => {
             <ButtonTemplate label={"Fale Conosco"} />
           </TouchableOpacity>
         </ScrollView>
-        <ButtonWhats />
+        <ButtonWhats orderId={order.id} />
       </>
     )
   );

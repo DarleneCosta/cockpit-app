@@ -92,7 +92,7 @@ const Complain = () => {
           <ButtonTemplate label={"Enviar Mensagem"} disabled={disabled} />
         </TouchableOpacity>
       </ScrollView>
-      <ButtonWhats />
+      <ButtonWhats orderId={orderId} />
     </>
   );
 };
