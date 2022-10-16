@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   View,
   ScrollView,
@@ -29,6 +29,12 @@ const Complain = () => {
   const [titleComplain, setTitleComplain] = useState("");
   const [describeComplain, setDescribeComplain] = useState("");
   const [type, setType] = useState("");
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    const enable = titleComplain.length > 5 && type;
+    setDisabled(!enable);
+  }, [titleComplain, type]);
 
   const typesComplain = [
     { label: "-- Selecione --", value: "" },
@@ -64,7 +70,7 @@ const Complain = () => {
         <Text style={styles.label}>Tipo *</Text>
         <ComboBox data={typesComplain} setValue={setType} value={type} />
 
-        <Text style={styles.label}>Descrição *</Text>
+        <Text style={styles.label}>Descrição</Text>
         <TextInput
           style={styles.inputText}
           onChangeText={setDescribeComplain}
@@ -73,13 +79,16 @@ const Complain = () => {
           multiline
         />
 
-        <Text style={styles.label}>Adicione evidências aqui *</Text>
+        <Text style={styles.label}>Adicione evidências aqui</Text>
         <Upload />
-
-        <TouchableOpacity style={styles.button} onPress={handlePressButton}>
-          <ButtonTemplate label={"Enviar Mensagem"} />
-        </TouchableOpacity>
       </View>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={handlePressButton}
+        disabled={disabled}
+      >
+        <ButtonTemplate label={"Enviar Mensagem"} disabled={disabled} />
+      </TouchableOpacity>
     </ScrollView>
   );
 };

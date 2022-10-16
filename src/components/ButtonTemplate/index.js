@@ -1,10 +1,10 @@
 import { Text, View } from "react-native";
 import styles from "./style";
 
-const ButtonTemplate = ({ label }) => {
+const ButtonTemplate = ({ label, disabled = false }) => {
   return (
-    <View style={styles.button}>
-      <Text style={styles.labelButton}>{label}</Text>
+    <View style={styles(disabled).button}>
+      <Text style={styles(disabled).labelButton}>{label}</Text>
     </View>
   );
 };

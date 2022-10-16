@@ -2,7 +2,7 @@ const colors = {
   primary: {
     main: "#19A7B0",
     light: "#D0EDEDAB",
-    contrast: "#000000",
+    contrast: "#666666",
   },
   secondary: {
     main: "#006972",
@@ -13,7 +13,7 @@ const colors = {
     success: "#78EC6E",
     warning: "#ECBA6E",
     error: "#EC6E6E",
-    disabled: "#999999",
+    disabled: "#a0a0a0",
   },
 };
 

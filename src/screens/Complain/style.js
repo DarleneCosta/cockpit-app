@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   button: {
-    marginBottom: 5,
+    width: "100%",
   },
 });
 
