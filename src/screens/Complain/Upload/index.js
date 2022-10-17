@@ -1,5 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import styles from "./style";
+import * as ImagePicker from 'expo-image-picker';
 
 const Upload = () => {
   return (

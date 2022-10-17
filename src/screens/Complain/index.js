@@ -1,94 +1,80 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,  } from "react";
 import {
   View,
   ScrollView,
   Text,
-  TextInput,
   TouchableOpacity,
+  LayoutAnimation
 } from "react-native";
 import {
   useRoute,
-  useNavigation,
-  LayoutAnimation,
+  useNavigation
 } from "@react-navigation/native";
 
-import ComboBox from "../../components/ComboBox";
-import Divider from "./../../components/Divider";
 import Title from "./../../components/Title";
-import TextKeyValue from "./../../components/TextKeyValue";
 
 import styles from "./style";
-import colors from "./../../styles/colors";
 import ButtonBack from "../../components/ButtonBack";
 import ButtonTemplate from "./../../components/ButtonTemplate";
 import ButtonWhats from "./../../components/ButtonWhats";
 import Identification from "./../../components/Identification";
 import Upload from "./Upload";
 import Spinner from "react-native-loading-spinner-overlay";
+import ComboBox from "./ComboBox";
+import InputText from "./InputText";
+import { useTypesComplain } from "../../hooks/useComplain";
+import { createdComplain } from "../../services/requests/complain";
 
 const Complain = () => {
+
+  LayoutAnimation.linear();
+  const typesComplain = useTypesComplain();
   const navigation = useNavigation();
   const route = useRoute();
 
-  const { orderId } = route.params;
-  const { spinner, setSpinner } = useState(false);
+  const { orderId } = route.params;  
   const [titleComplain, setTitleComplain] = useState("");
   const [describeComplain, setDescribeComplain] = useState("");
   const [type, setType] = useState("");
-  const [disabled, setDisabled] = useState(false);
-  const [warnings, setWarnings] = useState([
-    {
-      id: "titleComplain",
-      show: false,
-    },
-    {
-      id: "type",
-      show: false,
-    },
-  ]);
+  const [ spinner, setSpinner ] = useState(false);
+  const [ disabled, setDisabled ] = useState(false);
 
-  const setInfoMandatory = (id, value) => {
-    const selected = mandatory.find((i) => i.id === id);
-    selected.show = value;
-    setMandatory([...mandatory, selected]);
+  useEffect(()=>{
+    handleValid()
+  }, [titleComplain, type ])
+
+  const handleValid = () => {
+    const isValid = !!titleComplain && !!type   
+    setDisabled(!isValid);
+    return isValid
+  }
+
+  const handlePressButton =  async () => {    
+    const isValid = handleValid()    
+    if(!isValid){
+      return
+    } 
+
+    try {
+      setSpinner(true)
+      // await createdComplain({
+      //   orderId, 
+      //   titleComplain, 
+      //   describeComplain, 
+      //   type
+      // })
+      navigation.navigate("Atendimento", { complainId: "1012154548" });
+    } finally {
+      setSpinner(false)      
+    }   
   };
 
-  const getInfoMandatory = (id) => {
-    const selected = mandatory.find((i) => i.id === id);
-    return selected.show;
-  };
-
-  useEffect(() => {
-    setInfoMandatory("titleComplain", titleComplain?.length < 5);
-    setInfoMandatory("type", !type);
-    setDisabled(mandatory.find((i) => i.show));
-  }, [titleComplain, type]);
-
-  const typesComplain = [
-    { label: "-- Selecione --", value: "" },
-    { label: "Administrar e cancelar compra", value: "CANC" },
-    { label: "Devoluções e reembolsos", value: "REEM" },
-    { label: "Entrega", value: "ENTR" },
-    { label: "Nota Fiscal", value: "NF" },
-    { label: "Pagamento", value: "PAG" },
-    { label: "Produto danificado ou incorreto", value: "PROD" },
-    { label: "Outros", value: "OUT" },
-  ];
-
-  const handlePressButton = () => {
-    setInterval(() => {
-      setSpinner(true);
-    }, 2000);
-    navigation.navigate("Atendimento", { complainId: "1012154548" });
-  };
-
-  LayoutAnimation.linear();
   return (
     <>
       <Spinner
         visible={spinner}
         textContent={"Aguarde..."}
-        extStyle={styles.spinnerText}
+        textStyle={styles.spinnerText}
       />
       <ScrollView>
         <ButtonBack />
@@ -98,31 +84,32 @@ const Complain = () => {
           <Identification label="Id do pedido" valueID={orderId} />
 
           <Text style={styles.label}>Motivo do contato *</Text>
-          <TextInput
-            style={styles.input}
+          <InputText
+            autoFocus={true}
             onChangeText={setTitleComplain}
             value={titleComplain}
             maxLength={30}
+            msgRequired="Por favor preencha"
+            placeholder="Digite o motivo do contato"
           />
-          {getInfoMandatory("titleComplain") && (
-            <Text>Por favor preencha este campo (min 5 caracteres)</Text>
-          )}
 
           <Text style={styles.label}>Tipo *</Text>
-          <ComboBox data={typesComplain} setValue={setType} value={type} />
-          {getInfoMandatory("type") && (
-            <Text>Por favor selecione o motivo</Text>
-          )}
-
+          <ComboBox 
+          data={typesComplain} 
+          setValue={setType} 
+          value={type} 
+          force={disabled}
+          msgRequired="Por favor informe qual a categoria se enquandra"/>
+  
           <Text style={styles.label}>Descrição</Text>
-          <TextInput
-            style={styles.inputText}
+          <InputText
+            placeholder="Detalhe o motivo do contato"
             onChangeText={setDescribeComplain}
             value={describeComplain}
-            maxLength={500}
-            multiline
+            maxLength={1000}
+            multiline={true}
           />
-
+          
           <Text style={styles.label}>Adicione evidências aqui</Text>
           <Upload />
         </View>
