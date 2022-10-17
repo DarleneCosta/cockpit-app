@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
-import { create } from "../services/loadData";
+import { createdComplain } from "../services/requests/complain";
 
 export default function useComplain() {
-  const [order, setOrder] = useState(null);
+  const [complain, setComplain] = useState(null);
 
-  return order;
+  const createComplain = async (data) => {
+    const complain = await createdComplain(data);
+    return complain;
+  };
+
+  return complain;
 }
