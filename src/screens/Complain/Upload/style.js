@@ -12,11 +12,12 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   image: {
-    borderRadius:10,
+    borderRadius: 10,
     width: 70,
     height: 70,
-    resizeMode: 'center',
-  }, 
+    resizeMode: "center",
+    marginLeft: "10%",
+  },
   labelButton: {
     fontSize: 16,
     textTransform: "uppercase",

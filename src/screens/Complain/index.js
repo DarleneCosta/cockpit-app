@@ -1,15 +1,12 @@
-import { useEffect, useState,  } from "react";
+import { useEffect, useState } from "react";
 import {
   View,
   ScrollView,
   Text,
   TouchableOpacity,
-  LayoutAnimation
+  LayoutAnimation,
 } from "react-native";
-import {
-  useRoute,
-  useNavigation
-} from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 import Title from "./../../components/Title";
 
@@ -26,47 +23,46 @@ import { useTypesComplain } from "../../hooks/useComplain";
 //import { createdComplain } from "../../services/requests/complain";
 
 const Complain = () => {
-
   LayoutAnimation.linear();
   const typesComplain = useTypesComplain();
   const navigation = useNavigation();
   const route = useRoute();
 
-  const { orderId } = route.params;  
+  const { orderId } = route.params;
   const [titleComplain, setTitleComplain] = useState("");
   const [describeComplain, setDescribeComplain] = useState("");
+  const [image, setImage] = useState(null);
   const [type, setType] = useState("");
-  const [ spinner, setSpinner ] = useState(false);
-  const [ disabled, setDisabled ] = useState(false);
-
-  useEffect(()=>{
-    handleValid()
-  }, [titleComplain, type ])
+  const [spinner, setSpinner] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  useEffect(() => {
+    handleValid();
+  }, [titleComplain, type]);
 
   const handleValid = () => {
-    const isValid = !!titleComplain && !!type   
+    const isValid = !!titleComplain && !!type;
     setDisabled(!isValid);
-    return isValid
-  }
+    return isValid;
+  };
 
-  const handlePressButton =  async () => {    
-    const isValid = handleValid()    
-    if(!isValid){
-      return
-    } 
+  const handlePressButton = async () => {
+    const isValid = handleValid();
+    if (!isValid) {
+      return;
+    }
 
     try {
-      setSpinner(true)
+      setSpinner(true);
       // await createdComplain({
-      //   orderId, 
-      //   titleComplain, 
-      //   describeComplain, 
+      //   orderId,
+      //   titleComplain,
+      //   describeComplain,
       //   type
       // })
       navigation.navigate("Atendimento", { complainId: "1012154548" });
     } finally {
-      setSpinner(false)      
-    }   
+      setSpinner(false);
+    }
   };
 
   return (
@@ -94,13 +90,14 @@ const Complain = () => {
           />
 
           <Text style={styles.label}>Tipo *</Text>
-          <ComboBox 
-          data={typesComplain} 
-          setValue={setType} 
-          value={type} 
-          force={disabled}
-          msgRequired="Por favor informe qual a categoria se enquandra"/>
-  
+          <ComboBox
+            data={typesComplain}
+            setValue={setType}
+            value={type}
+            force={disabled}
+            msgRequired="Por favor informe qual a categoria se enquandra"
+          />
+
           <Text style={styles.label}>Descrição</Text>
           <InputText
             placeholder="Detalhe o motivo do contato"
@@ -109,9 +106,9 @@ const Complain = () => {
             maxLength={1000}
             multiline={true}
           />
-          
+
           <Text style={styles.label}>Adicione evidências aqui</Text>
-          <Upload />
+          <Upload image={image} setImage={setImage} />
         </View>
         <TouchableOpacity
           style={styles.button}
