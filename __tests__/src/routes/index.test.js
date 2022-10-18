@@ -12,7 +12,7 @@ jest.mock('../../../src/screens/Complain');
 jest.mock('../../../src/screens/Chat');
 
 describe('Routers', () => {
-  it('should render correctly', () => {
+  todo('should render correctly', () => {
 
     Order.mockImplementation(() => <View testID="Order" />);
     Complain.mockImplementation(() => <View testID="Complain" />);

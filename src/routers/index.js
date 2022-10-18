@@ -8,8 +8,10 @@ const Stack = createNativeStackNavigator();
 const  Router = ({ ComponentePrincipal = Order }) => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Compra" component={ComponentePrincipal} />
-      <Stack.Screen name="SolicitarAtendimento" component={Complain} />
+      <Stack.Screen name="Compra" component={ComponentePrincipal}  />
+      <Stack.Screen name="SolicitarAtendimento" component={Complain} options={{
+            title: 'Solicitar Atendimento',
+          }}/>
       <Stack.Screen name="Atendimento" component={Chat} />
     </Stack.Navigator>
   );
