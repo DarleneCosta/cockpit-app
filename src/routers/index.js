@@ -5,7 +5,7 @@ import Order from "../screens/Order";
 
 const Stack = createNativeStackNavigator();
 
-export default function Router({ ComponentePrincipal = Order }) {
+const  Router = ({ ComponentePrincipal = Order }) => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Compra" component={ComponentePrincipal} />
@@ -14,3 +14,5 @@ export default function Router({ ComponentePrincipal = Order }) {
     </Stack.Navigator>
   );
 }
+
+export default Router

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { createdComplain, loadTypes } from "../services/requests/complain";
+import { createdComplain, loadTypes } from "../services/repositories/complain";
 
 export const useComplain= () =>  {
   const [complain, setComplain] = useState(null);

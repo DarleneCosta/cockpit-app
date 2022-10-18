@@ -1,18 +1,22 @@
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import styles from "./style";
 import { Ionicons } from "@expo/vector-icons";
+
+import ButtonTemplate from "./../../components/ButtonTemplate";
+import ButtonWhats from "./../../components/ButtonWhats";
 import Divider from "../../components/Divider";
-import useOrder from "../../hooks/useOrder";
-import Summary from "./Summary";
-import colors from "../../styles/colors";
-import Timeline from "./Timeline";
 import Title from "../../components/Title";
+
+import useOrder from "../../hooks/useOrder";
+
+import Summary from "./Summary";
+import Timeline from "./Timeline";
 import Details from "./Details";
 import Payments from "./Payments";
 import Adresses from "./Adresses";
-import ButtonTemplate from "./../../components/ButtonTemplate";
-import ButtonWhats from "./../../components/ButtonWhats/index";
+
+import colors from "../../styles/colors";
+import styles from "./style";
 
 const Order = () => {
   const order = useOrder();

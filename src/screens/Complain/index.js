@@ -20,7 +20,7 @@ import Spinner from "react-native-loading-spinner-overlay";
 import ComboBox from "./ComboBox";
 import InputText from "./InputText";
 import { useTypesComplain } from "../../hooks/useComplain";
-//import { createdComplain } from "../../services/requests/complain";
+//import { createdComplain } from "../../services/repositories/complain";
 
 const Complain = () => {
   LayoutAnimation.linear();

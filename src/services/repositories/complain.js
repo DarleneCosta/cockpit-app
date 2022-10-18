@@ -1,5 +1,5 @@
 import api from "../api";
-import {types} from "./../mocks/complains";
+import { types } from "./../mocks/complains";
 
 export const createdComplain = async (complain) => {
   try {
@@ -10,7 +10,6 @@ export const createdComplain = async (complain) => {
     alert("Ops, aconteceu algo erro");
   }
 };
-
 
 export const loadTypes = () => {
   return types;
