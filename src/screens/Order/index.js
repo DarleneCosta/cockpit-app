@@ -19,7 +19,8 @@ import colors from "../../styles/colors";
 import styles from "./style";
 
 const Order = () => {
-  const order = useOrder();
+  const [order] = useOrder();
+  
   const navigation = useNavigation();
 
   const handlePressButton = () => {
