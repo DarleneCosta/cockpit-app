@@ -1,7 +1,5 @@
 import { render, screen } from "@testing-library/react-native";
-import useOrder from "../../../../src/hooks/useOrder";
 import Order from "../../../../src/screens/Order";
-import Adresses from "../../../../src/screens/Order/Adresses";
 import order from "../../../../src/services/mocks/order";
 const mockOrder = order;
 const mockLoadOrder = jest.fn();
@@ -16,8 +14,7 @@ jest.mock("@react-navigation/native", () => ({
 }));
 
 describe("screens/Order", () => {
-  const [order, getOrder] = useOrder();
-
+  
   beforeEach(() => {
     mockLoadOrder.mockClear();
   });

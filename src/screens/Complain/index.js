@@ -24,6 +24,7 @@ import { useTypesComplain } from "../../hooks/useComplain";
 
 const Complain = () => {
   LayoutAnimation.linear();
+
   const typesComplain = useTypesComplain();
   const navigation = useNavigation();
   const route = useRoute();
@@ -112,7 +113,7 @@ const Complain = () => {
           <Text style={styles.label}>Adicione evidências aqui</Text>
           <Upload image={image} setImage={setImage} />
         </View>
-        <TouchableOpacity
+        <TouchableOpacity        
           style={styles.button}
           onPress={handlePressButton}
           disabled={disabled}

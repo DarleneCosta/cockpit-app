@@ -8,7 +8,7 @@ const ButtonBack = ({ label = "VOLTAR" }) => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button}>
+    <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button} accessibilityHint="Voltar para a tela anterior">
       <Ionicons name="chevron-back" size={30} color="black" />
       <Text style={styles.labelButton}>{label}</Text>
     </TouchableOpacity>
