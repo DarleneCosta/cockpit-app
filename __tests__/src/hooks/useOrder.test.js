@@ -11,6 +11,6 @@ describe('hooks/useOrder', ()=>{
     it('should return objet order', () => {
         loadOrder.mockImplementation(() => mockOrder);    
         const { result } = renderHook(() => useOrder());
-        expect(result.current).toEqual(mockOrder);         
+        expect(result.current[0]).toEqual(mockOrder);         
     });
 })

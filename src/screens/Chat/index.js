@@ -1,12 +1,12 @@
-import { ScrollView, Text, View } from "react-native";
+import { useState, useCallback, useEffect } from "react";
+import { View } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import { GiftedChat, Send, Bubble } from "react-native-gifted-chat";
+import { MaterialIcons } from "@expo/vector-icons";
 import ButtonBack from "./../../components/ButtonBack";
 import Title from "./../../components/Title";
 import Identification from "./../../components/Identification";
 import styles from "./style";
-import { MaterialIcons } from "@expo/vector-icons";
-import { GiftedChat, Send, Bubble } from "react-native-gifted-chat";
-import { useState, useCallback, useEffect } from "react";
 
 const Chat = () => {
   const route = useRoute();

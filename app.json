@@ -4,7 +4,7 @@
     "slug": "cockpit-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/iconLogo.png",
+    "icon": "./assets/favicon.ico",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/iconLogo.png",
