@@ -5,8 +5,6 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 30,
   },
-
-  
   label: {
     fontSize: 15,
     fontWeight: "bold",
@@ -18,7 +16,6 @@ const styles = StyleSheet.create({
   spinnerText: {
     color: colors.secondary.contrast,
   },
-  
 });
 
 export default styles;

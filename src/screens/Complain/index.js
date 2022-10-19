@@ -35,6 +35,7 @@ const Complain = () => {
   const [type, setType] = useState("");
   const [spinner, setSpinner] = useState(false);
   const [disabled, setDisabled] = useState(false);
+
   useEffect(() => {
     handleValid();
   }, [titleComplain, type]);
@@ -57,7 +58,8 @@ const Complain = () => {
       //   orderId,
       //   titleComplain,
       //   describeComplain,
-      //   type
+      //   type,
+      //   image
       // })
       navigation.navigate("Atendimento", { complainId: "1012154548" });
     } finally {
