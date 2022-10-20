@@ -1,0 +1,29 @@
+# App CockPit
+
+> Aplicativo pensando no consumidor de uma loja virtual que precisa de ajuda. Unificando os atendimentos buscando o melhor produto.
+
+![Preview](/assets/simulador.gif)
+
+## Versão MVP
+
+Cliente já esta logado no app da loja e deseja iniciar atendimento. A ideia foi criar uma fluxo intuitivo (com validação de campos obrigatórios alguns campos com acesselidade para WhatsAp, pois não possui texto) e se o cliente desejar o atendimento também pode ser iniciado via WhatsApp.
+
+### Iniciar
+
+No terminal digite:
+
+`npm i`
+
+`npm run start`
+
+Siga os descritos no terminal
+
+### Testes
+
+Para testes
+
+`npm run test`
+
+Para report coverage
+
+`npm run testFinal`
