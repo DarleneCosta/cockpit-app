@@ -55,14 +55,14 @@ const Complain = () => {
 
     try {
       setSpinner(true);
-      // await createdComplain({
+      // const { id: complainId } = await createdComplain({
       //   orderId,
       //   titleComplain,
       //   describeComplain,
       //   type,
       //   image
       // })
-      navigation.navigate("Atendimento", { complainId: "1012154548" });
+      navigation.navigate("Atendimento", { complainId: Math.random()* 1000});
     } finally {
       setSpinner(false);
     }

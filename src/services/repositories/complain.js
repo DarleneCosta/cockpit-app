@@ -8,11 +8,15 @@ export const loadTypes = () => {
 export const createdComplain = async (complain) => {
   if (complain.image) {
     const { url, payload, headers } = createdComplainWithEvidence(complain);
-    return await sendCreatedComplain(url, payload, headers);
+    const {data} =  await sendCreatedComplain(url, payload, headers);
+    return data
   }
-  return await sendCreatedComplain(`/complains/createComplain`, complain, {
+  const {data} =  await sendCreatedComplain(
+    `/complains/createComplain`, 
+    complain, {
     "Content-Type": "application/json",
   });
+  return data
 };
 
 const sendCreatedComplain = async (payload, url, headers) => {
@@ -47,14 +51,5 @@ const createdComplainWithEvidence = async (data) => {
     payload: formData,
     headers: { "Content-Type": "multipart/form-data" },
   };
-  await axios
-    .post(`/complains/createComplain`, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    })
-    .then((res) => {
-      setPhoto(res.data.photo.photo);
-    })
-    .catch((err) => {
-      console.log(err.response);
-    });
+
 };
