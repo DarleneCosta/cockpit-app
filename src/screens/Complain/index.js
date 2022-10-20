@@ -20,6 +20,7 @@ import Spinner from "react-native-loading-spinner-overlay";
 import ComboBox from "./ComboBox";
 import InputText from "./InputText";
 import { useTypesComplain } from "../../hooks/useComplain";
+import utils from "../../utils";
 //import { createdComplain } from "../../services/repositories/complain";
 
 const Complain = () => {
@@ -62,7 +63,7 @@ const Complain = () => {
       //   type,
       //   image
       // })
-      navigation.navigate("Atendimento", { complainId: Math.random()* 1000});
+      navigation.navigate("Atendimento", { complainId:utils.random()});
     } finally {
       setSpinner(false);
     }

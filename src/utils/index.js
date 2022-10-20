@@ -38,10 +38,15 @@ const formatPhone = (value) => {
   )}) ${value.substring(4, 8)}-${value.substring(8)}`;
 };
 
+const random = () =>{
+  return Math.floor(Math.random()* 100000).toString().padStart(8,'0')
+}
+
 export default {
   formatCep,
   formatDate,
   formatPhone,
   formatMetric,
   formatMoney,
+  random
 };
