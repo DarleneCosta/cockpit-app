@@ -1,6 +1,6 @@
 # App CockPit
 
-> Aplicativo pensando no consumidor de uma loja virtual que precisa de ajuda. Unificando os atendimentos buscando o melhor produto.
+> Aplicativo pensando no consumidor de uma loja virtual que precisa de ajuda. Com o objetivo de melhorar estes atendimentos a prosposta foi unificar os serviços sem perda de qualidade.
 
 ![Preview](/assets/simulador.gif)
 
