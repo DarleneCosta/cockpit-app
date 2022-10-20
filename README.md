@@ -10,6 +10,8 @@ Cliente já esta logado no app da loja e deseja iniciar atendimento. A ideia foi
 
 ### Iniciar
 
+Aplicativo desenvolvido com React Native e Expo. Por ser tratar de um MVP foram as melhores escolhas.
+
 No terminal digite:
 
 `npm i`
